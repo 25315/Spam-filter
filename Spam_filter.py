@@ -12,8 +12,7 @@ with open("./sms.csv", 'r') as file:
   for row in csvreader:
     sms.append(row[0])
     message.append(row[1])
-# print(sms)
-# print(message)
+
 ns = []
 s1 = ''  # string of all strings with nonspam messages together
 s2 = ''    # string of all strings with spam messages together
@@ -32,8 +31,7 @@ for j in range(len(s_nonspam)):
 
 for j in range(len(s_spam)):
     s2 = s2 + ' ' + s_spam[j]
-# print(f"1>{len(s1)}")
-# print((s1))
+    
 # removing all the exclamotory signs and numeric values
 s1 = re.sub(r'[^\w\s]',"",s1)
 s2 = re.sub(r'[^\w\s]',"",s2)
@@ -90,7 +88,6 @@ for word in li:
         continue
     else:
         linew.append(word)
- 
 
 pm_spam = 1    # pm_spam means probability of m given spam
 for word in linew:
@@ -99,7 +96,6 @@ for word in linew:
 p_spam = len(s2new)
 pspam_m = pm_spam*p_spam     # probability of m given spam
 
-
 pm_nonspam = 1
 for word in linew:
     p = find_prob(word)
@@ -107,8 +103,6 @@ for word in linew:
 p_nonspam = len(s1new)
 pnonspam_m = pm_nonspam*p_nonspam         #probability of m given nonspam
 
-# print(pspam_m)
-# print(pnonspam_m)
 if pspam_m > pnonspam_m:
     print("The given message fall into Spam")
 else:
