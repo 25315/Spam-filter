@@ -61,6 +61,8 @@ for word in s2:
     else:
         s2new.append(word)
 
+counts = Counter(s1new)
+counts_spam = Counter(s2new)
 def find_prob(word):
     total_words = len(s1new) + len(s2new)
     s_new = s1new + s2new
