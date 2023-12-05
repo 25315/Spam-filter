@@ -2,7 +2,7 @@
 import csv
 from collections import Counter
 import re
-import numpy as np
+
 sms = []            # sms list store whether the message is spam or not
 message = []          # message store the message of both spam and not spam
 s_spam = []
